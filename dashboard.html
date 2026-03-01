@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FocusFlow – Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      background: #f9fafb;
+    }
+
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #4f46e5;
+      text-decoration: none;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .user-name {
+      font-weight: 600;
+      color: #1e1b4b;
+    }
+
+    .logout-btn {
+      padding: 8px 20px;
+      background: #ef4444;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .logout-btn:hover {
+      background: #dc2626;
+      transform: translateY(-2px);
+    }
+
+    .dashboard-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .welcome-section {
+      background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .welcome-section h1 {
+      font-size: 2.2rem;
+      color: #1e1b4b;
+      margin-bottom: 12px;
+    }
+
+    .welcome-section p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 24px;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .dashboard-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s;
+    }
+
+    .dashboard-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(79, 70, 229, 0.12);
+    }
+
+    .dashboard-card h3 {
+      font-size: 1.2rem;
+      color: #1e1b4b;
+      margin-bottom: 12px;
+    }
+
+    .dashboard-card p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .profile-card {
+      grid-column: 1 / -1;
+    }
+
+    .profile-info {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .profile-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 2rem;
+    }
+
+    .profile-details {
+      flex: 1;
+    }
+
+    .profile-details h2 {
+      font-size: 1.5rem;
+      color: #1e1b4b;
+      margin-bottom: 4px;
+    }
+
+    .profile-details p {
+      color: #666;
+      margin: 4px 0;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #666;
+    }
+
+    .error {
+      background: #fee2e2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+      padding: 16px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="logo">FocusFlow</a>
+      <div class="nav-right">
+        <div class="user-info">
+          <div class="user-avatar" id="avatar">U</div>
+          <div class="user-name" id="username-display">User</div>
+        </div>
+        <button class="logout-btn" onclick="handleLogout()">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="dashboard-container">
+    <div id="loading" class="loading">
+      <p>Loading profile...</p>
+    </div>
+
+    <div id="error" class="error" style="display: none;"></div>
+
+    <div id="content" style="display: none;">
+      <div class="welcome-section">
+        <h1>Welcome back, <span id="welcome-name">User</span>!</h1>
+        <p>You're all set up and ready to boost your productivity with FocusFlow</p>
+      </div>
+
+      <div class="dashboard-grid">
+        <!-- Profile Card -->
+        <div class="dashboard-card profile-card">
+          <h3>Your Profile</h3>
+          <div class="profile-info">
+            <div class="profile-avatar" id="profile-avatar">U</div>
+            <div class="profile-details">
+              <h2 id="profile-username">Username</h2>
+              <p id="profile-email">email@example.com</p>
+              <p style="color: #999; font-size: 0.9rem; margin-top: 8px;">
+                Member since today
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="dashboard-card">
+          <h3>📊 Get Started</h3>
+          <p>
+            Start creating tasks and organizing your workflow. Use the smart task
+            lists feature to prioritize what matters most.
+          </p>
+        </div>
+
+        <div class="dashboard-card">
+          <h3>⏱️ Focus Timer</h3>
+          <p>
+            Use the built-in Pomodoro timer to maintain focus during work sessions
+            and get reminders to take breaks.
+          </p>
+        </div>
+
+        <div class="dashboard-card">
+          <h3>📈 Track Progress</h3>
+          <p>
+            View your productivity analytics and see how your habits improve over
+            time with detailed insights.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_URL = "http://localhost:8001";
+
+    async function loadProfile() {
+      const token = localStorage.getItem("token");
+      const username = localStorage.getItem("username");
+
+      if (!token) {
+        window.location.href = "login.html";
+        return;
+      }
+
+      try {
+        const response = await fetch(
+          `${API_URL}/user/profile?token=${encodeURIComponent(token)}`
+        );
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.detail || "Failed to load profile");
+        }
+
+        // Display profile
+        const avatar = data.username.charAt(0).toUpperCase();
+        document.getElementById("avatar").textContent = avatar;
+        document.getElementById("profile-avatar").textContent = avatar;
+        document.getElementById("welcome-name").textContent = data.username;
+        document.getElementById("username-display").textContent = data.username;
+        document.getElementById("profile-username").textContent = data.username;
+        document.getElementById("profile-email").textContent = data.email;
+
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("content").style.display = "block";
+      } catch (error) {
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("error").textContent = error.message;
+        document.getElementById("error").style.display = "block";
+      }
+    }
+
+    function handleLogout() {
+      const token = localStorage.getItem("token");
+
+      // Clear local storage
+      localStorage.removeItem("token");
+      localStorage.removeItem("username");
+
+      // Optional: notify backend
+      fetch(`${API_URL}/auth/logout?token=${encodeURIComponent(token)}`, {
+        method: "POST",
+      }).catch(() => {});
+
+      // Redirect to home
+      window.location.href = "index.html";
+    }
+
+    // Load profile on page load
+    window.addEventListener("load", loadProfile);
+  </script>
+</body>
+</html>
