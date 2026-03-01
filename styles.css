@@ -45,24 +45,24 @@ img {
   font-weight: 600;
   cursor: pointer;
   transition: background 0.3s, transform 0.2s;
-  background: #4f46e5;
+  background: #16a34a;
   color: #fff;
-  border: 2px solid #4f46e5;
+  border: 2px solid #16a34a;
 }
 
 .btn:hover {
-  background: #3730a3;
-  border-color: #3730a3;
+  background: #15803d;
+  border-color: #15803d;
   transform: translateY(-2px);
 }
 
 .btn-outline {
   background: transparent;
-  color: #4f46e5;
+  color: #16a34a;
 }
 
 .btn-outline:hover {
-  background: #4f46e5;
+  background: #16a34a;
   color: #fff;
 }
 
@@ -93,7 +93,7 @@ img {
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #4f46e5;
+  color: #16a34a;
 }
 
 .nav-links {
@@ -108,20 +108,20 @@ img {
 }
 
 .nav-links a:hover {
-  color: #4f46e5;
+  color: #16a34a;
 }
 
 /* ===== Hero Section ===== */
 .hero {
   padding: 160px 0 100px;
-  background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
   text-align: center;
 }
 
 .hero-content h1 {
   font-size: 3.2rem;
   font-weight: 800;
-  color: #1e1b4b;
+  color: #14532d;
   margin-bottom: 20px;
   line-height: 1.2;
 }
@@ -150,7 +150,7 @@ img {
   text-align: center;
   font-size: 2.2rem;
   font-weight: 700;
-  color: #1e1b4b;
+  color: #14532d;
   margin-bottom: 48px;
 }
 
@@ -171,7 +171,7 @@ img {
 
 .feature-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(79, 70, 229, 0.12);
+  box-shadow: 0 12px 24px rgba(22, 163, 74, 0.12);
 }
 
 .feature-icon {
@@ -182,7 +182,7 @@ img {
 .feature-card h3 {
   font-size: 1.2rem;
   margin-bottom: 8px;
-  color: #1e1b4b;
+  color: #14532d;
 }
 
 .feature-card p {
@@ -192,8 +192,8 @@ img {
 
 /* ===== Footer ===== */
 .footer {
-  background: #1e1b4b;
-  color: #cbd5e1;
+  background: #14532d;
+  color: #d1d5db;
   padding: 60px 0 20px;
 }
 
@@ -228,7 +228,7 @@ img {
 }
 
 .footer-links a:hover {
-  color: #e0e7ff;
+  color: #dcfce7;
 }
 
 .footer-bottom {
