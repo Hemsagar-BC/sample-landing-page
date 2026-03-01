@@ -27,7 +27,7 @@ body::before {
   transform: translate(-50%, -50%) rotate(-25deg);
   font-size: 18rem;
   font-weight: 800;
-  color: #4f46e5;
+  color: #dc2626;
   opacity: 0.04;
   pointer-events: none;
   z-index: 0;
@@ -62,24 +62,24 @@ img {
   font-weight: 600;
   cursor: pointer;
   transition: background 0.3s, transform 0.2s;
-  background: #16a34a;
+  background: #dc2626;
   color: #fff;
-  border: 2px solid #16a34a;
+  border: 2px solid #dc2626;
 }
 
 .btn:hover {
-  background: #15803d;
-  border-color: #15803d;
+  background: #b91c1c;
+  border-color: #b91c1c;
   transform: translateY(-2px);
 }
 
 .btn-outline {
   background: transparent;
-  color: #16a34a;
+  color: #dc2626;
 }
 
 .btn-outline:hover {
-  background: #16a34a;
+  background: #dc2626;
   color: #fff;
 }
 
@@ -110,7 +110,7 @@ img {
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #16a34a;
+  color: #dc2626;
 }
 
 .nav-links {
@@ -125,20 +125,20 @@ img {
 }
 
 .nav-links a:hover {
-  color: #16a34a;
+  color: #dc2626;
 }
 
 /* ===== Hero Section ===== */
 .hero {
   padding: 160px 0 100px;
-  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
   text-align: center;
 }
 
 .hero-content h1 {
   font-size: 3.2rem;
   font-weight: 800;
-  color: #14532d;
+  color: #7f1d1d;
   margin-bottom: 20px;
   line-height: 1.2;
 }
@@ -167,7 +167,7 @@ img {
   text-align: center;
   font-size: 2.2rem;
   font-weight: 700;
-  color: #14532d;
+  color: #7f1d1d;
   margin-bottom: 48px;
 }
 
@@ -188,7 +188,7 @@ img {
 
 .feature-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(22, 163, 74, 0.12);
+  box-shadow: 0 12px 24px rgba(220, 38, 38, 0.12);
 }
 
 .feature-icon {
@@ -199,7 +199,7 @@ img {
 .feature-card h3 {
   font-size: 1.2rem;
   margin-bottom: 8px;
-  color: #14532d;
+  color: #7f1d1d;
 }
 
 .feature-card p {
@@ -209,7 +209,7 @@ img {
 
 /* ===== Footer ===== */
 .footer {
-  background: #14532d;
+  background: #7f1d1d;
   color: #d1d5db;
   padding: 60px 0 20px;
 }
@@ -245,7 +245,7 @@ img {
 }
 
 .footer-links a:hover {
-  color: #dcfce7;
+  color: #fecaca;
 }
 
 .footer-bottom {
